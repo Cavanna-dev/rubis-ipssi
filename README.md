@@ -20,6 +20,7 @@ Commandes Symfony
 
 Créer un bundle : app/console generate:bundle
 Créer une entité : app/console doctrine:generate:entity
+Créer une entité : app/console doctrine:generate:crud (attention, cette commande génère beaucoup de code)
 Générer getters/setters des entités d'un bundle : app/console doctrine:generate:entities Bundle
 Mettre à jour la base de donnée : app/console doctrine:schema:update --force
 
