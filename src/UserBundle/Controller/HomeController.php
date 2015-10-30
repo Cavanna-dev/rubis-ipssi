@@ -18,7 +18,13 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('UserBundle:User')
+                ->findAll();
+        
+        return array(
+            'users' => $users
+        );
     }
 
 }
