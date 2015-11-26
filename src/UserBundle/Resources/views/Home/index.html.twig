@@ -19,15 +19,12 @@
                     <td>{{ user.firstName }}</td>
                     <td>
                         {% for address in user.address %}
-                            {{ address.numero }}
-                            {{ address.street }}
-                            {{ address.city }}
-                            {{ address.zipcode }}
+                            {{ user.address.street }}
                         {% endfor %}
                     </td>
                     <td>
                         {% for role in user.role %}
-                            {{ role.roleName}}
+                            {{ user.role.roleName }}
                         {% endfor %}
                     </td>
                     <td>

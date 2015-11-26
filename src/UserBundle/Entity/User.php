@@ -42,8 +42,10 @@ class User
      **/
     private $address;
 
+
     /**
-    * @ORM\OneToMany(targetEntity="Address", mappedBy="address")
+     * @ORM\ManyToMany(targetEntity="Address", inversedBy="address")
+     * @ORM\JoinColumn(name="address_id")
      * **/
     private $role;
 

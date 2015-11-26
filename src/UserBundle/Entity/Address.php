@@ -47,10 +47,8 @@ class Address
      */
     private $city;
 
-
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="address")
-     * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
+     * @ORM\OneToMany(targetEntity="User", mappedBy="address")
      **/
     private $address;
 
