@@ -37,18 +37,20 @@ class User
 
 
     /**
-     * @ORM\OneToMany(targetEntity="Role", mappedBy="role")
-     * @ORM\OneToMany(targetEntity="Address", mappedBy="address")
+     * @ORM\ManyToMany(targetEntity="Role", inversedBy="role")
+     * @ORM\JoinColumn(name="user_id")
      **/
     private $address;
+
+    /**
+    * @ORM\OneToMany(targetEntity="Address", mappedBy="address")
+     * **/
     private $role;
 
     public function __construct() {
         $this->address = new ArrayCollection();
         $this->role = new ArrayCollection();
     }
-
-
 
     /**
      * Get id

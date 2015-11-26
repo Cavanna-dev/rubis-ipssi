@@ -43,8 +43,7 @@ class Role
     private $roleDescription;
 
     /**
-     * @ORM\ManyToMany(targetEntity="User", inversedBy="role")
-     * @ORM\JoinColumn(name="user_id")
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="role")
      **/
     private $role;
 
