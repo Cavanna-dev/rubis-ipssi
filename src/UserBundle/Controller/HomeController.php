@@ -21,7 +21,7 @@ class HomeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository('UserBundle:User')
                 ->findAll();
-        
+
         return array(
             'users' => $users
         );

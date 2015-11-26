@@ -1,5 +1,44 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    Hello !
+    <div class="container">
+        <h3>Liste des utilisateurs</h3> <br/>
+        <table class="table table-hover" >
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Adresse</th>
+                <th>Rôle</th>
+                <th>Action</th>
+            </tr>
+            {% for user in users %}
+                <tr>
+                    <th>{{ user.id }}</th>
+                    <td>{{ user.lastName}}</td>
+                    <td>{{ user.firstName }}</td>
+                    <td>
+                        {% for address in user.address %}
+                            {{ address.numero }}
+                            {{ address.street }}
+                            {{ address.city }}
+                            {{ address.zipcode }}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for role in user.role %}
+                            {{ role.role_id}}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-default">Editer</button>
+                        <button type="button" class="btn btn-danger">Supprimer</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <button type="button" class="btn btn-primary">Ajouter un utilisateur</button>
+    </div>
+
 {% endblock %}
+
