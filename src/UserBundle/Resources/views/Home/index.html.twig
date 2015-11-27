@@ -14,17 +14,16 @@
             </tr>
             {% for user in users %}
                 <tr>
-                    <th>{{ user.id }}</th>
                     <td>{{ user.lastName}}</td>
                     <td>{{ user.firstName }}</td>
                     <td>
-                        {% for address in user.address %}
-                            {{ user.address.street }}
+                        {% for address in user.addresses %}
+                            {{ addresses.street }}
                         {% endfor %}
                     </td>
                     <td>
                         {% for role in user.role %}
-                            {{ user.role.roleName }}
+                            {{ role.roleName }}
                         {% endfor %}
                     </td>
                     <td>

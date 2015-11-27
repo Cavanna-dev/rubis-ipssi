@@ -23,6 +23,7 @@ class User
      */
     private $id;
 
+
     /**
      * @var string
      * @ORM\Column(name="first_name", type="string")
@@ -35,19 +36,16 @@ class User
      */
     private $lastName;
 
-
     /**
      * @ORM\ManyToMany(targetEntity="Role", inversedBy="role")
      * @ORM\JoinColumn(name="user_id")
      **/
-    private $role;
-
+    private $roles;
 
     /**
-     * @ORM\OneToMany(targetEntity="Address", inversedBy="address")
-     * @ORM\JoinColumn(name="address_id")
+     * @ORM\OneToMany(targetEntity="Address", mappedBy="address")
      * **/
-    private $address;
+    private $addresses;
 
     public function __construct() {
         $this->address = new ArrayCollection();
@@ -55,4 +53,130 @@ class User
     }
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set firstName
+     *
+     * @param string $firstName
+     *
+     * @return User
+     */
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * Get firstName
+     *
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * Set lastName
+     *
+     * @param string $lastName
+     *
+     * @return User
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * Get lastName
+     *
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * Add role
+     *
+     * @param \UserBundle\Entity\Role $role
+     *
+     * @return User
+     */
+    public function addRole(\UserBundle\Entity\Role $role)
+    {
+        $this->roles[] = $role;
+
+        return $this;
+    }
+
+    /**
+     * Remove role
+     *
+     * @param \UserBundle\Entity\Role $role
+     */
+    public function removeRole(\UserBundle\Entity\Role $role)
+    {
+        $this->roles->removeElement($role);
+    }
+
+    /**
+     * Get roles
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * Add address
+     *
+     * @param \UserBundle\Entity\Address $address
+     *
+     * @return User
+     */
+    public function addAddress(\UserBundle\Entity\Address $address)
+    {
+        $this->addresses[] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Remove address
+     *
+     * @param \UserBundle\Entity\Address $address
+     */
+    public function removeAddress(\UserBundle\Entity\Address $address)
+    {
+        $this->addresses->removeElement($address);
+    }
+
+    /**
+     * Get addresses
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAddresses()
+    {
+        return $this->addresses;
+    }
 }
