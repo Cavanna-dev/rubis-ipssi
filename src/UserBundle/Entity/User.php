@@ -23,7 +23,6 @@ class User
      */
     private $id;
 
-
     /**
      * @var string
      * @ORM\Column(name="first_name", type="string")
@@ -43,9 +42,8 @@ class User
     private $roles;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="addresses")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     * **/
+     * @ORM\OneToMany(targetEntity="Address", mappedBy="user")
+     **/
     private $addresses;
 
     public function __construct() {

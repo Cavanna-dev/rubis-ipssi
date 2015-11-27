@@ -18,9 +18,11 @@
                     <td>{{ user.lastName}}</td>
                     <td>{{ user.firstName }}</td>
                     <td>
-                        {#{% for address in user.getAddresses %}#}
-                            {#{{ address.street }}#}
-                        {#{% endfor %}#}
+                        {% for address in user.getAddresses %}
+                            {{ address.street }}
+                            {{ address.zipcode }}
+                            {{ address.city }}
+                        {% endfor %}
                     </td>
                     <td>
                         {#{% for role in user.role %}#}
