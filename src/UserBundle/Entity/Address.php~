@@ -1,0 +1,57 @@
+<?php
+
+namespace UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use UserBundle\Entity\User;
+
+/**
+ * Address
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="UserBundle\Entity\AddressRepository")
+ */
+class Address
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     * @ORM\Column(name="street", type="string")
+     */
+    private $street;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="numero", type="integer")
+     */
+    private $numero;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="zipcode", type="integer")
+     */
+    private $zipcode;
+
+    /**
+     * @var string
+     * @ORM\Column(name="city", type="string")
+     */
+    private $city;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id")
+     **/
+    private $user;
+
+
+
+}

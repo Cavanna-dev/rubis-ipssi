@@ -1,0 +1,56 @@
+<?php
+
+namespace UserBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+use UserBundle\Entity\Address;
+use UserBundle\Entity\Role;
+
+/**
+ * User
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class User
+{
+    /**
+     * @var integer
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+
+    /**
+     * @var string
+     * @ORM\Column(name="first_name", type="string")
+     */
+    private $firstName;
+
+    /**
+     * @var string
+     * @ORM\Column(name="last_name", type="string")
+     */
+    private $lastName;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Role", inversedBy="role")
+     * @ORM\JoinColumn(name="user_id")
+     **/
+    private $roles;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Address", mappedBy="address")
+     * **/
+    private $addresses;
+
+    public function __construct() {
+        $this->address = new ArrayCollection();
+        $this->role = new ArrayCollection();
+    }
+
+
+}
