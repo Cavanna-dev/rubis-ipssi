@@ -44,7 +44,7 @@ class User
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="addresses")
-     * @JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * **/
     private $addresses;
 

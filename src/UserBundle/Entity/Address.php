@@ -47,7 +47,6 @@ class Address
     private $city;
 
     /**
-
      * @ORM\ManyToOne(targetEntity="User", inversedBy="addresses")
      * @JoinColumn(name="user_id", referencedColumnName="id")
      **/
