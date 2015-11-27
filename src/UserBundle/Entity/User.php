@@ -43,12 +43,13 @@ class User
     private $roles;
 
     /**
-     * @ORM\OneToMany(targetEntity="Address", mappedBy="address")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="addresses")
+     * @JoinColumn(name="user_id", referencedColumnName="id")
      * **/
     private $addresses;
 
     public function __construct() {
-        $this->address = new ArrayCollection();
+        $this->addresses = new ArrayCollection();
         $this->role = new ArrayCollection();
     }
 

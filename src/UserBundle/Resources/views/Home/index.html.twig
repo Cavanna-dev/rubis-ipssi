@@ -14,17 +14,18 @@
             </tr>
             {% for user in users %}
                 <tr>
+                    <td>{{ user.id }}</td>
                     <td>{{ user.lastName}}</td>
                     <td>{{ user.firstName }}</td>
                     <td>
-                        {% for address in user.getAddresses %}
-                            {{ address.street }}
-                        {% endfor %}
+                        {#{% for address in user.getAddresses %}#}
+                            {#{{ address.street }}#}
+                        {#{% endfor %}#}
                     </td>
                     <td>
-                        {% for role in user.role %}
-                            {{ role.roleName }}
-                        {% endfor %}
+                        {#{% for role in user.role %}#}
+                            {#{{ role.roleName }}#}
+                        {#{% endfor %}#}
                     </td>
                     <td>
                         <button type="button" class="btn btn-default">Editer</button>
